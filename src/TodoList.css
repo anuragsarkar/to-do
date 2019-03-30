@@ -38,8 +38,8 @@
     font-size: 20px;
     font-family: 'Ubuntu Mono', monospace;
     border-color: #FFF;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 8px;
+    margin-bottom: 10px;
     border-radius: 5px;
     transition: background-color .2s ease-out;
   }

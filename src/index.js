@@ -4,7 +4,8 @@ import "./index.css";
 import TodoList from "./TodoList";
 
 var destination = document.getElementById('app');
-var date = new Date().toLocaleString()
+var dateAndTime = new Date().toLocaleString();
+var date = dateAndTime.split(' ')[0].slice(0,10);
 
 ReactDOM.render(
 
