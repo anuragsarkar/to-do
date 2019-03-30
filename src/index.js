@@ -9,7 +9,8 @@ var date = new Date().toLocaleString()
 ReactDOM.render(
 
     <div>
-        <div class="date">
+        
+        <div className="date">
             <p> <b>Date</b>: {date}</p>
         </div>
         <TodoList />

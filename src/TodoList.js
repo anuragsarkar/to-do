@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ListItems from "./ListItems"
+import ListItems from "./ListItems";
 import "./TodoList.css";
 
 
@@ -57,9 +57,9 @@ class TodoList extends Component {
 
   render() {
     return (
-
+      
       <div className="todoListMain">
-
+        <NavBar/>
         <div className="header">
 
           <form onSubmit={this.addItem}>
@@ -72,9 +72,22 @@ class TodoList extends Component {
         <ListItems entries={this.state.items}
           delete={this.deleteItem} />
 
-      </div>
+      </div> 
     );
   }
 }
 
+class NavBar extends TodoList {
+  constructor(props) {
+    super(props);}
+
+  render(){
+    return(
+      <ul className="Navbar-ul">
+        <li className="Navbar-li"><a href="#Todo" className="Navbar-active Navbar-a " >To Do</a></li>
+        <li className="Navbar-li"><a href="#Done" className="Navbar-a ">Done</a></li>
+      </ul>
+    )
+  }
+}
 export default TodoList;

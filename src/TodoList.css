@@ -1,6 +1,8 @@
+
 .todoListMain .header input {
     padding: 10px;
     font-size: 16px;
+    font-family: 'Ubuntu Mono', monospace;
     border: 3 px solid #FFF;
     width: 165px;
     border-radius: 5px;
@@ -8,6 +10,7 @@
   .todoListMain .header button {
     padding: 10px;
     font-size: 16px;
+    font-family: 'Ubuntu Mono', monospace;
     margin: 10px;
     margin-right: 0px;
     border-radius: 5px;
@@ -33,6 +36,7 @@
   .todoListMain .theList li {
     color: rgb(16, 180, 57);
     font-size: 20px;
+    font-family: 'Ubuntu Mono', monospace;
     border-color: #FFF;
     padding: 10px;
     margin-bottom: 15px;
@@ -47,6 +51,7 @@
 }
 ul li:before {
     content: ">";
+    text-align: center;
     color: #FFF;
 	position: absolute;
 	left: 0;
@@ -64,3 +69,43 @@ ul li:before {
   .done {
     text-decoration: line-through;
   }
+
+
+  .Navbar-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .Navbar-li {
+   float: left;
+   box-sizing: 100%;
+   width: 50%;
+   
+  
+  }
+  
+  .Navbar-a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Ubuntu Mono', monospace;
+  }
+  .Navbar-ul li:before {
+    content: none;
+  }
+  .Navbar-li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .Navbar-active {
+    background-color:rgb(16, 180, 57);
+  }  
+
+ 
