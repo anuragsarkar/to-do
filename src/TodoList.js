@@ -57,9 +57,13 @@ class TodoList extends Component {
 
   render() {
     return (
-      
-      <div className="todoListMain">
+      <div>
+        <span class="log">
+    <button class="logOutButton">$ Logout</button> </span>
+
         <NavBar/>
+      <div className="todoListMain list">
+        
         <div className="header">
 
           <form onSubmit={this.addItem}>
@@ -73,6 +77,7 @@ class TodoList extends Component {
           delete={this.deleteItem} />
 
       </div> 
+      </div>
     );
   }
 }

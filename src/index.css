@@ -6,8 +6,7 @@ body {
   font-family: 'Ubuntu Mono', monospace;
 }
 #app {
-  display: flex;
-  justify-content: center;
+  
 }
 
 h1 {
