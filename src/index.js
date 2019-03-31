@@ -9,9 +9,7 @@ var destination = document.getElementById('app');
 ReactDOM.render(
 
     <div>
-        
-        
-        <TodoList />
+      <TodoList />
     </div>,
     destination
 );

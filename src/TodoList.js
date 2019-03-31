@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import ListItems from "./ListItems";
 import "./TodoList.css";
+import Login from "./Login.js";
+import firebase from 'firebase';
 
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      Auth: false,
+      redirect: false
     };
 
     this.dateAndTime = new Date().toLocaleString();
-    this.date = this.dateAndTime.split(' ')[0].slice(0,10);
+    this.date = this.dateAndTime.split(' ')[0].slice(0, 10);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
-  
-  
+
+
 
   addItem(e) {
     if (this._inputElement.value !== "") {
@@ -57,46 +61,56 @@ class TodoList extends Component {
     });
   }
 
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(
+      user => {
+        this.setState({ Auth: !!user })
+      }
+    )
+  }
+
 
   render() {
+
+    console.log(this.state.Auth)
     return (
-      <div>
-        {this.props.Auth
-        ?
-        (<span className="log">
-    <button className="logOutButton">$ Logout</button> </span>)
-    : (<span className="log">
-    <button className="logInButton">$ Login</button> </span>)}
 
-       {this.props.Auth
-       ?
-       (
-      <div className="todoListMain list">
-      <div className="date">
-            <p> <b>Date</b>: {this.date}</p>
-        </div>
-         <NavBar/>
-        <div className="header">
-              
-          <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a}
-              placeholder="enter task"></input>
+      <div Auth={this.state.Auth}>
+        {this.state.Auth
+          ?
+          (<span className="log">
+            <button className="logOutButton" onClick={() => firebase.auth().signOut()}>$ Logout</button> </span>)
+          : null/*(<span className="log">
+        <button className="logInButton">$ Login</button> </span>)*/}
 
-            <button type="submit">add</button>
-          </form>
-        </div>
-        <ListItems entries={this.state.items}
-          delete={this.deleteItem} />
+        {this.state.Auth
+          ?
+          (
+            <div className="todoListMain list">
+              <div className="date">
+                <p> <b>Date</b>: {this.date}</p>
+              </div>
+              <NavBar />
+              <div className="header">
 
-       </div> )
-       :
-       (
-         <div className="todoListMain list">
-         
-           <div className="header">
-              <img src="https://image.freepik.com/free-vector/list-icon_24911-2146.jpg" className="img"/>
-          </div></div>
-       )}
+                <form onSubmit={this.addItem}>
+                  <input ref={(a) => this._inputElement = a}
+                    placeholder="enter task"></input>
+
+                  <button type="submit">add</button>
+                </form>
+              </div>
+              <ListItems entries={this.state.items}
+                delete={this.deleteItem} />
+
+            </div>)
+          :
+          (
+            <div>
+              <img src="https://image.freepik.com/free-vector/list-icon_24911-2146.jpg" className="img" />
+              <Login />
+            </div>
+          )}
       </div>
     );
   }
@@ -104,10 +118,11 @@ class TodoList extends Component {
 
 class NavBar extends TodoList {
   constructor(props) {
-    super(props);}
+    super(props);
+  }
 
-  render(){
-    return(
+  render() {
+    return (
       <ul className="Navbar-ul">
         <li className="Navbar-li"><a href="#Todo" className="Navbar-active Navbar-a " >To Do</a></li>
         <li className="Navbar-li"><a href="#Done" className="Navbar-a ">Done</a></li>
