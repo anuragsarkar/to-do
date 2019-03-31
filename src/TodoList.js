@@ -5,13 +5,13 @@ import Login from "./Login.js";
 import firebase from 'firebase';
 
 
+
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
       Auth: false,
-      redirect: false
     };
 
     this.dateAndTime = new Date().toLocaleString();
