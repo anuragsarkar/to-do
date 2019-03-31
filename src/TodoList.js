@@ -10,10 +10,13 @@ class TodoList extends Component {
       items: []
     };
 
-
+    this.dateAndTime = new Date().toLocaleString();
+    this.date = this.dateAndTime.split(' ')[0].slice(0,10);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
+  
+  
 
   addItem(e) {
     if (this._inputElement.value !== "") {
@@ -58,14 +61,23 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        <span class="log">
-    <button class="logOutButton">$ Logout</button> </span>
+        {this.props.Auth
+        ?
+        (<span className="log">
+    <button className="logOutButton">$ Logout</button> </span>)
+    : (<span className="log">
+    <button className="logInButton">$ Login</button> </span>)}
 
-        <NavBar/>
+       {this.props.Auth
+       ?
+       (
       <div className="todoListMain list">
-        
+      <div className="date">
+            <p> <b>Date</b>: {this.date}</p>
+        </div>
+         <NavBar/>
         <div className="header">
-
+              
           <form onSubmit={this.addItem}>
             <input ref={(a) => this._inputElement = a}
               placeholder="enter task"></input>
@@ -76,7 +88,15 @@ class TodoList extends Component {
         <ListItems entries={this.state.items}
           delete={this.deleteItem} />
 
-      </div> 
+       </div> )
+       :
+       (
+         <div className="todoListMain list">
+         
+           <div className="header">
+              <img src="https://image.freepik.com/free-vector/list-icon_24911-2146.jpg" className="img"/>
+          </div></div>
+       )}
       </div>
     );
   }
