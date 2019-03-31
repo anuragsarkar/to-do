@@ -52,6 +52,10 @@ class TodoList extends Component {
     console.log(todo.done);
     todo.done ? this.state.items.push(todo) : this.state.items.unshift(todo);
     this.setState({items: this.state.items});  */
+    var index = this.state.items.map(function(e) { return e.key; }).indexOf(key);
+    console.log(this.state.items[index].done);
+    this.state.items[index].done =! this.state.items[index].done;
+    console.log(this.state.items[index].done);
     var filteredItems = this.state.items.filter(function (item) {
       return (item.key !== key);
     });

@@ -18,7 +18,7 @@ const uiConfig = {
     signInSuccessUrl: '/',
 
     callbacks: {
-        signInSuccess: () => false
+        signInSuccessWithAuthResult : () => false
     },
     // We will display Google and Facebook as auth providers.
     signInOptions: [
