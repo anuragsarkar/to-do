@@ -3,7 +3,13 @@ import ListItems from "./ListItems";
 import "./TodoList.css";
 import Login from "./Login.js";
 import firebase from 'firebase';
-
+//Import queries
+import { GetTodoQuery } from './query';
+import { AddTodoQuery } from './query';
+import { MarkDoneQuery } from './query';
+import { getDoneQuery } from './query';
+//uncomment once delete function added
+//import { deleteQuery } from './query';
 
 
 class TodoList extends Component {
@@ -12,6 +18,8 @@ class TodoList extends Component {
     this.state = {
       items: [],
       Auth: false,
+      todo_item: "",
+      todo_user: ""
     };
 
     this.dateAndTime = new Date().toLocaleString();
@@ -19,8 +27,6 @@ class TodoList extends Component {
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
-
-
 
   addItem(e) {
     if (this._inputElement.value !== "") {
@@ -42,19 +48,11 @@ class TodoList extends Component {
     console.log(this.state.items);
 
     e.preventDefault();
-  }
-
+  } 
   deleteItem(key) {
-    /*var index = this.state.items.map(function(e) { return e.key; }).indexOf(itemKey);
-    var todo = this.state.items[index];
-    this.state.items.splice(index, 1);
-    todo.done = !todo.done;
-    console.log(todo.done);
-    todo.done ? this.state.items.push(todo) : this.state.items.unshift(todo);
-    this.setState({items: this.state.items});  */
-    var index = this.state.items.map(function(e) { return e.key; }).indexOf(key);
+    var index = this.state.items.map(function (e) { return e.key; }).indexOf(key);
     console.log(this.state.items[index].done);
-    this.state.items[index].done =! this.state.items[index].done;
+    this.state.items[index].done = !this.state.items[index].done;
     console.log(this.state.items[index].done);
     var filteredItems = this.state.items.filter(function (item) {
       return (item.key !== key);
@@ -84,8 +82,7 @@ class TodoList extends Component {
           ?
           (<span className="log">
             <button className="logOutButton" onClick={() => firebase.auth().signOut()}>$ Logout</button> </span>)
-          : null/*(<span className="log">
-        <button className="logInButton">$ Login</button> </span>)*/}
+          : null}
 
         {this.state.Auth
           ?

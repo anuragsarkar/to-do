@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 //fetches all todos (left to be done!)
-export const FetchAllQuery = gql`
+export const GetTodoQuery = gql`
 {
     todo(where: {todo_done: {_eq: false}}, order_by: {todo_id: asc}) {
       todo_id
