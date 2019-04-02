@@ -5,8 +5,8 @@ import firebase from 'firebase';
 // Configure Firebase.
 const config = {
     
-    apiKey: "AIzaSyAtxq4C8cL_9kXqCD-a04hMNVgcucUtfH4",
-    authDomain: "to-do-accakks.firebaseapp.com"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN"
 
 };
 firebase.initializeApp(config);
