@@ -9,12 +9,67 @@
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   <title>To-Do App</title>
+  <style>
+    .anurag{
+      background-color: beige;
+    }
+    .footer{
+      text-align: center;
+    }
+
+.myButton {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c74545), color-stop(1, #de1d1d));
+	background:-moz-linear-gradient(top, #c74545 5%, #de1d1d 100%);
+	background:-webkit-linear-gradient(top, #c74545 5%, #de1d1d 100%);
+	background:-o-linear-gradient(top, #c74545 5%, #de1d1d 100%);
+	background:-ms-linear-gradient(top, #c74545 5%, #de1d1d 100%);
+	background:linear-gradient(to bottom, #c74545 5%, #de1d1d 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c74545', endColorstr='#de1d1d',GradientType=0);
+	background-color:#c74545;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #020e14;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:23px;
+	padding:25px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #de1d1d), color-stop(1, #c74545));
+	background:-moz-linear-gradient(top, #de1d1d 5%, #c74545 100%);
+	background:-webkit-linear-gradient(top, #de1d1d 5%, #c74545 100%);
+	background:-o-linear-gradient(top, #de1d1d 5%, #c74545 100%);
+	background:-ms-linear-gradient(top, #de1d1d 5%, #c74545 100%);
+	background:linear-gradient(to bottom, #de1d1d 5%, #c74545 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#de1d1d', endColorstr='#c74545',GradientType=0);
+	background-color:#de1d1d;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+  </style>
 </head>
 
-<body>
-  <h1>$ TO DO LIST</h1>
+<body class="anurag">
+  <h1 style="color:black;">$ TO DO LIST</h1>
+  <div class="content">
+    <ol class="font-size:20px;">
+      <li> Get things done.</li>
+      <li> Customs Lists.</li>
+      <li> Maintain your daily tasks.</li>
+    </ol>
+  </div>
   <div id="app"></div>
 
+  <div class="footer">
+    <a href="https://github.com/accakks/to-do" target="_blank">Find us on GiHub</a>
+  </div>
 </body>
 
 </html>
